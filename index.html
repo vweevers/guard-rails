@@ -33,7 +33,7 @@
 <p><a href="http://badge.fury.io/rb/guard-rails"><img src="https://badge.fury.io/rb/guard-rails.png" alt="Gem Version"></a>
 <a href="https://travis-ci.org/ranmocy/guard-rails"><img src="https://travis-ci.org/ranmocy/guard-rails.png" alt="Build Status"></a>
 <a href="https://gemnasium.com/ranmocy/guard-rails"><img src="https://gemnasium.com/ranmocy/guard-rails.png" alt="Dependency Status"></a>
-<a href="https://codeclimate.com/github/ranmocy/guard-rails"><img src="https://codeclimate.com/badge.png" alt="Code Climate"></a></p>
+<a href="https://codeclimate.com/github/ranmocy/guard-rails"><img src="https://codeclimate.com/github/ranmocy/guard-rails.png" alt="Code Climate"></a></p>
 
 <h2>Want to restart your Rails development server whilst you work? Now you can!</h2>
 
@@ -43,32 +43,51 @@
 end
 </code></pre>
 
-<h2>Lots of fun options!</h2>
+<h2>Lots of fun options growing!</h2>
 
 <ul>
 <li>
-<code>:port</code> is the port number to run on (default <code>3000</code>)</li>
+<code>:daemon</code> runs the server as a daemon, without any output to the terminal that ran <code>guard</code> (**default <code>false</code>**)</li>
 <li>
-<code>:environment</code> is the environment to use (default <code>development</code>)</li>
+<code>:debugger</code> enable the debugger in server. Required ruby-debug gem. (**default <code>false</code>**)</li>
 <li>
-<code>:start_on_start</code> will start the server when starting Guard (default <code>true</code>)</li>
+<code>:environment</code> is the server environment (**default <code>development</code>**)</li>
 <li>
-<code>:force_run</code> kills any process that's holding open the listen port before attempting to (re)start Rails (default <code>false</code>).</li>
+<code>:force_run</code> kills any process that's holding the listen port before attempting to (re)start Rails (**default <code>false</code>**)</li>
 <li>
-<code>:daemon</code> runs the server as a daemon, without any output to the terminal that ran <code>guard</code> (default <code>false</code>).</li>
+<code>:pid_file</code> specify your pid_file (**default <code>tmp/pids/[RAILS_ENV].pid</code>**)</li>
 <li>
-<code>:debugger</code> runs the server with the debugger enabled (default <code>false</code>). Required ruby-debug gem.</li>
+<code>:port</code> is the server port number (**default <code>3000</code>**)</li>
 <li>
-<code>:timeout</code> waits this number of seconds when restarting the Rails server before reporting there's a problem (default <code>20</code>).</li>
+<code>:server</code> the webserver engine to use (**try <code>:server =&gt; :thin</code>**)</li>
 <li>
-<code>:server</code> lets you specify the webserver engine to use (try <code>:server =&gt; :thin</code>).</li>
+<code>:start_on_start</code> will start the server when starting Guard (**default <code>true</code>**)</li>
 <li>
-<code>:pid_file</code> specify your pid_file, so that maybe you can run multiple instances with same rails_env (default <code>tmp/pids/[RAILS_ENV].pid</code>).</li>
+<code>:timeout</code> waits when restarting the Rails server, in seconds (**default <code>30</code>**).</li>
 <li>
-<code>:zeus</code> support <a href="https://github.com/burke/zeus">zeus</a> to boost rails init speed (default <code>false</code>).</li>
-</ul><h1>Contribute</h1>
+<code>:zeus_plan</code> the <a href="https://github.com/burke/zeus/blob/master/docs/ruby/modifying.md">custom plan</a> in zeus, only works when <code>zeus</code> option is <code>true</code> (**default <code>server</code>**)</li>
+<li>
+<code>:zeus</code> support <a href="https://github.com/burke/zeus">zeus</a> to boost rails init speed (**default <code>false</code>**).</li>
+<li>
+<code>:CLI</code> construct the runner command as your willing! Will omit all options above except <code>pid_file</code>! (**default <code>rails server --pid tmp/pids/[RAILS_ENV].pid</code>**)</li>
+</ul><h2>How-to</h2>
+
+<ul>
+<li>
+<strong>Multiple instances</strong> use <code>pid_file</code> option to run multiple instances with same rails_env</li>
+</ul><h2>Contribute</h2>
 
 <p>Feel free to fork'n'fix for any willing.</p>
+
+<p>Or</p>
+
+<p>Tell.me in: any.way</p>
+
+<h2>Philosophy</h2>
+
+<ul>
+<li><a href="http://semver.org/">Semantic Version</a></li>
+</ul>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/ranmocy">ranmocy</a></p>
