@@ -35,13 +35,28 @@
 <a href="https://gemnasium.com/ranmocy/guard-rails"><img src="https://gemnasium.com/ranmocy/guard-rails.png" alt="Dependency Status"></a>
 <a href="https://codeclimate.com/github/ranmocy/guard-rails"><img src="https://codeclimate.com/github/ranmocy/guard-rails.png" alt="Code Climate"></a></p>
 
-<h2>Want to restart your Rails development server whilst you work? Now you can!</h2>
+<h2>Main repository</h2>
 
-<pre><code>guard 'rails', :port =&gt; 5000 do
-  watch('Gemfile.lock')
-  watch(%r{^(config|lib)/.*})
-end
-</code></pre>
+<p>Currently, the official fork repository is at <a href="http://github.com/ranmocy/guard-rails">ranmocy/guard-rails</a>.
+Please, come here and communicate with me.</p>
+
+<h2>Install</h2>
+
+<p>Please make sure to have <a href="https://github.com/guard/guard">Guard</a> installed before continue.</p>
+
+<p>Add Guard::Rails to your <code>Gemfile</code>:</p>
+
+<div class="highlight"><pre><span class="n">group</span> <span class="ss">:development</span> <span class="k">do</span>
+  <span class="n">gem</span> <span class="s1">'guard-rails'</span>
+<span class="k">end</span>
+</pre></div>
+
+<p>Add the default Guard::Rails template to your <code>Guardfile</code> by running:</p>
+
+<div class="highlight"><pre><span class="nv">$ </span>guard init rails
+</pre></div>
+
+<p>Now I can automatically restart your Rails development server as your files changed!</p>
 
 <h2>Lots of fun options growing!</h2>
 
@@ -58,6 +73,8 @@ end
 <code>:pid_file</code> specify your pid_file (**default <code>tmp/pids/[RAILS_ENV].pid</code>**)</li>
 <li>
 <code>:port</code> is the server port number (**default <code>3000</code>**)</li>
+<li>
+<code>:root</code> lets you specify the Rails root, i.e. for using guard-rails to run a dummy app within an engine (try <code>:root =&gt; '/spec/dummy'</code>).</li>
 <li>
 <code>:server</code> the webserver engine to use (**try <code>:server =&gt; :thin</code>**)</li>
 <li>
@@ -77,15 +94,19 @@ end
 <strong>Multiple instances</strong> use <code>pid_file</code> option to run multiple instances with same rails_env</li>
 </ul><h2>Contribute</h2>
 
-<p>Feel free to fork'n'fix for any willing.</p>
+<p>The best choise to contact me is the Issues and Pull Request system on GitHub.
+Currently the official fork repository is at <a href="http://github.com/ranmocy/guard-rails">ranmocy/guard-rails</a>.</p>
 
-<p>Or</p>
-
-<p>Tell.me in: any.way</p>
+<p>Please, post your issue or pull request there.
+And I will be there as your call.</p>
 
 <h2>Philosophy</h2>
 
 <ul>
+<li>
+<strong>All Platforms</strong> MRI is the main test case. But will be tested under REE and JRuby.</li>
+<li>
+<strong>Live in edge</strong> I am tested under Ruby 1.8.7, 1.9.3, 2.0.0 with newest gems. Will be rewrited to fit Ruby 2.0.0 when I am released as version 1.0.0.</li>
 <li><a href="http://semver.org/">Semantic Version</a></li>
 </ul>
       </section>
