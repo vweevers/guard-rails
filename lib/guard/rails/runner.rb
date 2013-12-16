@@ -38,7 +38,13 @@ module Guard
       command = build_cli_command if options[:CLI]
       command ||= build_zeus_command if options[:zeus]
       command ||= build_rails_command
-      "sh -c 'cd \"#{@root}\" && #{command} &'"
+      
+      require 'rbconfig'
+      if RbConfig::CONFIG['target_os'] =~ /mswin|win|mingw|cygwin/i
+        "cd \"#{@root}\" && start /b #{command}"
+      else
+        "sh -c 'cd \"#{@root}\" && #{command} &'"
+      end
     end
 
     def environment
